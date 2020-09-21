@@ -22,14 +22,15 @@ Get the data for the next 10 days:
 [http://www.treffpunkt-fanny.de/images/stories/dokumente/Essensplaene/api/TFfoodplanAPI.php?dataCount=10&dataMode=days&dateFormat=U&dataFromTime=now](http://www.treffpunkt-fanny.de/images/stories/dokumente/Essensplaene/api/TFfoodplanAPI.php?dataCount=10&dataMode=days&dateFormat=U&dataFromTime=now)
 
 
-## TFfoodplanHTML
+## TFfoodplanHTML (Joomla Integration)
 This code can be used in a Joomla Article to make it display the foodplan table.  
 It can be injected by using the [Sourcerer plugin for Joomla](https://extensions.joomla.org/extension/sourcerer/).  
 
 ```php
 <?php
 echo "<!-- -->";
-define(TFf_BASEPATH, JPATH_BASE."/images/stories/dokumente/Essensplaene/api"); // THIS HAS TO BE ADJUSTED IN CASE THE LOCATION OF THE API FILES IS MODIFIED
+// THE FOLLOWING LINE HAS TO BE ADJUSTED IN CASE THE LOCATION OF THE API FILES IS MODIFIED
+define(TFf_BASEPATH, JPATH_BASE."/images/stories/dokumente/Essensplaene/api");
 require(TFf_BASEPATH."/TFfoodplanParser.php"); 
 $TFfoodplanParser = new TFfoodplanParser(TFf_BASEPATH.'/../current.xlsx', 'Essensplan', 'Xlsx'); 
 
@@ -39,7 +40,7 @@ $weekCount = 2;             // table count
 $fields = array("cookteam", "date", "mainDish", "mainDishVeg", "garnish", "dessert");   // displayed fields
 $highlightedCount = 2;      // highlited fields (from top)
 
-TFfoodplanHTMLTable($TFfoodplanParser, $dateFormat, $daysPerWeek, $weekCount, $fields, $highlightedCount);
+$TFfoodplanParser->printHTMLTable(null, $dateFormat, $daysPerWeek, $weekCount, $fields, $highlightedCount); 
 ?>
 ```
 
