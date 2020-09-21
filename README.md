@@ -1,6 +1,6 @@
 # ABOUT
 
-This is some php code that parses the [.xlsx file containing the foodplan](http://www.treffpunkt-fanny.de/images/stories/dokumente/Essensplaene/current.xlsx) and outputs the data via a REST-API and as an HTML Table.  
+This is some php code that parses the [.xlsx file containing the foodplan](http://www.treffpunkt-fanny.de/images/stories/dokumente/Essensplaene/current.xlsx) and outputs the data via a [REST-API](http://www.treffpunkt-fanny.de/images/stories/dokumente/Essensplaene/api/TFfoodplanAPI.php) and as an [HTML Table](http://www.treffpunkt-fanny.de/fuer-schueler-und-lehrer/speiseplan.html).  
 
 # USAGE
 ## TFfoodplanAPI
