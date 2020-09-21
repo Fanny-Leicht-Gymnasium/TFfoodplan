@@ -1,3 +1,7 @@
+# ABOUT
+
+This is some php code that parses the [.xlsx file containing the foodplan](http://www.treffpunkt-fanny.de/images/stories/dokumente/Essensplaene/current.xlsx) and outputs the data via a REST-API and as an HTML Table.  
+
 # USAGE
 ## TFfoodplanAPI
 ### Location
@@ -19,10 +23,15 @@ Get the data for the next 10 days:
 
 
 ## TFfoodplanHTML
+This code can be used in a Joomla Article to make it display the foodplan table.  
+It can be injected by using the [Sourcerer plugin for Joomla](https://extensions.joomla.org/extension/sourcerer/).  
+
 ```php
 <?php
-require("/path/to/TFfoodplanHTML.php");
-$TFfoodplanParser = new TFfoodplanParser('essensplan_2018_2019.xlsx', 'Essensplan 2018-2019', 'Xlsx');
+echo "<!-- -->";
+define(TFf_BASEPATH, JPATH_BASE."/images/stories/dokumente/Essensplaene/api"); // THIS HAS TO BE ADJUSTED IN CASE THE LOCATION OF THE API FILES IS MODIFIED
+require(TFf_BASEPATH."/TFfoodplanParser.php"); 
+$TFfoodplanParser = new TFfoodplanParser(TFf_BASEPATH.'/../current.xlsx', 'Essensplan', 'Xlsx'); 
 
 $dateFormat = "j\.n\.Y";    // the format of the date (php date format string)
 $daysPerWeek = 4;           // days per table
@@ -35,6 +44,8 @@ TFfoodplanHTMLTable($TFfoodplanParser, $dateFormat, $daysPerWeek, $weekCount, $f
 ```
 
 ## TFfoodplanParser
+If the format of the .xlsx foofdplan file changes, the parser can be adjusted like this:  
+
 ```php
 <?php
 require("/path/to/TFfoodplanParser.php");
