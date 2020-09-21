@@ -1,5 +1,8 @@
 # USAGE
 ## TFfoodplanAPI
+### Location
+[http://www.treffpunkt-fanny.de/images/stories/dokumente/Essensplaene/api/TFfoodplanAPI.php](http://www.treffpunkt-fanny.de/images/stories/dokumente/Essensplaene/api/TFfoodplanAPI.php)
+
 ### HTML Parameters
 | name           | type                   | example                                      |
 | ---------------| -----------------------|----------------------------------------------|
@@ -9,6 +12,11 @@
 | dataFromTime   | (php) time string      | ?dataFromTime=now || ?dataFromTime=1.1.2019  |
 | dataMode       | 'days' || 'weeks'      | ?dataMode=days                               |
 | dataCount      | int                    | ?dataCount=2                                 |
+
+### Example
+Get the data for the next 10 days:  
+[http://www.treffpunkt-fanny.de/images/stories/dokumente/Essensplaene/api/TFfoodplanAPI.php?dataCount=10&dataMode=days&dateFormat=U&dataFromTime=now](http://www.treffpunkt-fanny.de/images/stories/dokumente/Essensplaene/api/TFfoodplanAPI.php?dataCount=10&dataMode=days&dateFormat=U&dataFromTime=now)
+
 
 ## TFfoodplanHTML
 ```php
