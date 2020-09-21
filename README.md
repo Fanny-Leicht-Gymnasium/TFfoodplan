@@ -13,8 +13,8 @@ This is some php code that parses the [.xlsx file containing the foodplan](http:
 | fields:        | Array                  | ?fields[]=cookteam&fields[]=mainDish         |
 | fields[ignore] | Bool                   | ?fields[ignore]=true                         |
 | dateFormat     | php date format string | ?dateFormat=j/n/Y                            |
-| dataFromTime   | (php) time string      | ?dataFromTime=now || ?dataFromTime=1.1.2019  |
-| dataMode       | 'days' || 'weeks'      | ?dataMode=days                               |
+| dataFromTime   | (php) time string      | ?dataFromTime=now or ?dataFromTime=1.1.2019  |
+| dataMode       | 'days' or 'weeks'      | ?dataMode=days                               |
 | dataCount      | int                    | ?dataCount=2                                 |
 
 ### Example
