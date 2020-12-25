@@ -102,4 +102,4 @@ $foodplanDays = $TFfoodplanParser->getData("j/n/Y");
 
 ## Updater
 The updater.php script pulls the latest version of this script from the server of [Itsblue development](https://itsblue.de) who have developed it.  
-If you have developed an update and want it to be uploaded there, please contact Doria Zedler at [contact@itsblue.de](mailto:contact@itsblue.de)  
+If you have developed an update and want it to be uploaded there, please contact Dorian Zedler at [contact@itsblue.de](mailto:contact@itsblue.de)  
