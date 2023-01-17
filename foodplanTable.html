@@ -1,0 +1,109 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <h3 id="error"></h3>
+
+    <table class="speiseplan table"></table>
+
+    <table class="speiseplan table"></table>
+
+    <script>
+        // some minor config
+        var weeksToShow = document.getElementsByClassName("speiseplan").length;
+        var daysPerWeek = 4;
+        var apiLink = "https://api.itsblue.de/fanny/foodplan.php?json=1&currentWeeks=" + weeksToShow + "&dateAsUNIX=1";
+
+        function getDayString(dataObj) {
+            // function to generate the text inside the boxes from a foodpaln day object (from the json api)
+
+            // replace empty fields wit balnks
+            for (i in dataObj) {
+                if (dataObj[i] === null) {
+                    dataObj[i] = "";
+                }
+            }
+
+            // parse the date
+            var date = new Date(dataObj.date * 1000);
+            var currentDate = new Date();
+
+            var days = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
+
+            if (date.getDate() === currentDate.getDate()) {
+                // if the given date is today -> date string = "Heute"
+                dataObj.date = "Heute"
+            }
+            else {
+                // else -> date string = dddd, dd.MM.yy (e.g.: Wednesday, 30.01.19)
+                dataObj.date = days[date.getDay()] + ", " + date.getDate() + "." + (date.getMonth() + 1) + "." + date.getFullYear().toString().substring(2, 4);
+            }
+
+            var cardString = "<td width='25%'>"
+            cardString += "<strong>" + dataObj.cookteam + "</strong><br />"
+            cardString += "<strong>" + dataObj.date + "</strong><hr />"
+            cardString += "" + dataObj.mainDish + "<hr />"
+            cardString += "" + dataObj.mainDishVeg + "<hr />"
+            cardString += "" + dataObj.garnish + "<hr />"
+            cardString += "" + dataObj.dessert + "<hr />"
+            cardString += '</td>';
+            return (cardString)
+        }
+
+        var processData = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                // if the request was successfull -> process it
+
+                // generate an object out of the json text
+                foodplanObj = JSON.parse(this.responseText);
+
+                // get the all tables which need to be filled
+                var tables = document.getElementsByClassName("speiseplan");
+
+                for (var i = 0; i < (tables.length); i++) {
+                    // variable to store the string for the current table
+                    var tableString = "";
+
+                    // add the start of the table
+                    tableString += "<tbody><tr style='border: 1px solid #999;' align='center' valign='top'>";
+
+                    // add each day to the table
+                    for (var day = 0; day < daysPerWeek; day++) {
+                        // add the current day
+                        tableString += getDayString(foodplanObj[(i) * daysPerWeek + day]);
+                    }
+
+                    // add the end of the body
+                    tableString += "</tr></tbody>";
+
+                    // write the string to the table
+                    tables[i].innerHTML = tableString;
+                }
+            }
+            else if (this.readyState === 4 && this.status !== 0) {
+                // if the request returned an error -> display error message
+                document.getElementById("error").innerHTML = "got error while loading data: " + this.status
+            }
+        }
+
+        function loadData() {
+            // function to load the data from the foodplan api
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = processData;
+            xmlhttp.open("GET", apiLink, true);
+            xmlhttp.send();
+        }
+
+        // load the data one time on site load
+        loadData();
+
+        // trigger a reload every five seconds
+        var dataLoader = setInterval(function () { loadData(); }, 5000)
+    </script>
+
+</body>
+
+</html>

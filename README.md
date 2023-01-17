@@ -18,9 +18,10 @@ This is some php code that parses the [.xlsx file containing the foodplan](http:
 | dataCount      | int                    | ?dataCount=2                                 |
 
 ### Example
-Get the data for the next 10 days:  
-[http://www.treffpunkt-fanny.de/images/stories/dokumente/Essensplaene/api/TFfoodplanAPI.php?dataCount=10&dataMode=days&dateFormat=U&dataFromTime=now](http://www.treffpunkt-fanny.de/images/stories/dokumente/Essensplaene/api/TFfoodplanAPI.php?dataCount=10&dataMode=days&dateFormat=U&dataFromTime=now)
-
+- Get the data for the next 10 days: [http://www.treffpunkt-fanny.de/images/stories/dokumente/Essensplaene/api/TFfoodplanAPI.php?dataCount=10&dataMode=days&dateFormat=U&dataFromTime=now](http://www.treffpunkt-fanny.de/images/stories/dokumente/Essensplaene/api/TFfoodplanAPI.php?dataCount=10&dataMode=days&dateFormat=U&dataFromTime=now)
+- Use the API with JavaScript:
+  - As an ugly table: [foodplanTable.html](https://github.com/Fanny-Leicht-Gymnasium/TFfoodplan/blob/master/foodplanTable.html)
+  - As a nice site: [foodplan.html](https://github.com/Fanny-Leicht-Gymnasium/TFfoodplan/blob/master/foodplan.html)
 
 ## TFfoodplanHTML (Joomla Integration)
 This code can be used in a Joomla Article to make it display the foodplan table.  
