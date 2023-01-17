@@ -1,5 +1,5 @@
 <?php
-$version = "0.01.15";
+$version = "0.01.16";
 echo "starting updater v $version <br>\n";
 
 function downloadUpdateZip($currentVersion, $saveTo){
