@@ -1,10 +1,10 @@
 <?php
-$version = "0.01.16";
+$version = "0.01.21";
 echo "starting updater v $version <br>\n";
 
 function downloadUpdateZip($currentVersion, $saveTo){
     //The resource that we want to download.
-    $fileUrl = "http://api.itsblue.de/updates/update.php?name=TFfoodplan&version=$currentVersion";
+    $fileUrl = "https://api.itsblue.de/updates/update.php?name=TFfoodplan&version=$currentVersion";
     
     //Open file handler.
     $fp = fopen($saveTo, 'w+');

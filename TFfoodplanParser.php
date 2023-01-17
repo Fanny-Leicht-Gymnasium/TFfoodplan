@@ -11,6 +11,8 @@ class TFfoodplanParser {
 	private $filters = array("fields"=>array(), "data"=>array("fromTime"=>0, "mode"=>"weeks", "count"=>-1));
 
 	public function __construct($inputFileName = 'essensplan_2018_2019.xlsx', $sheetname = 'Essensplan 2018-2019', $inputFileType = 'Xlsx', $dataStructure = null){
+		// suppress all warnings
+		error_reporting(E_ERROR | E_PARSE);
 
 		// construct the sheet reader
 		$reader = IOFactory::createReader($inputFileType);

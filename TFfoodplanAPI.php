@@ -11,6 +11,7 @@
     // dataMode         'days' || 'weeks'       ?dataMode=days
     // dataCount        int                     ?dataCount=2
 //end
+error_reporting(E_ERROR | E_PARSE);
 define('TFf_BASEPATH', "./");
 require("./TFfoodplanParser.php");
 
