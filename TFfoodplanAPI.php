@@ -11,9 +11,10 @@
     // dataMode         'days' || 'weeks'       ?dataMode=days
     // dataCount        int                     ?dataCount=2
 //end
-define(TFf_BASEPATH, "./");
+define('TFf_BASEPATH', "./");
 require("./TFfoodplanParser.php");
 
+$fields = array();
 $dateFormat = "j\.n\.Y";
 $dataCount = -1;
 $dataFromTime = "now";

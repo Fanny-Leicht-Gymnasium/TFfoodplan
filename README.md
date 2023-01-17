@@ -30,7 +30,7 @@ It can be injected by using the [Sourcerer plugin for Joomla](https://extensions
 <?php
 echo "<!-- -->";
 // THE FOLLOWING LINE HAS TO BE ADJUSTED IN CASE THE LOCATION OF THE API FILES IS MODIFIED
-define(TFf_BASEPATH, JPATH_BASE."/images/stories/dokumente/Essensplaene/api");
+define('TFf_BASEPATH', JPATH_BASE."/images/stories/dokumente/Essensplaene/api");
 require(TFf_BASEPATH."/TFfoodplanParser.php"); 
 $TFfoodplanParser = new TFfoodplanParser(TFf_BASEPATH.'/../current.xlsx', 'Essensplan', 'Xlsx'); 
 
