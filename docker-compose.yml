@@ -1,0 +1,9 @@
+services:
+  webserver:
+    build:
+      context: .
+    volumes:
+      - ./:/app/www/public
+      - ../current.xlsx:/app/www/current.xlsx
+    ports:
+      - 8080:80
